@@ -27,13 +27,17 @@ const Main = () => {
             })
     };
 
+    const handleKeyPress = event => {
+        if (event.key === "Enter") searchUserRepositories();
+    }
+
     const handlePageChange = (event, value) => {
         searchUserRepositories(event, value);
     };
 
     return (
         <Container maxWidth="sm">
-            <Box mt="100px" display="flex" flexDirection="column">
+            <Box mt="100px">
                 <Box display="flex" justifyContent="center">
                     <div>hello world!</div>
                 </Box>
@@ -41,7 +45,8 @@ const Main = () => {
                     <Search
                         searchText={searchText}
                         setSearchText={setSearchText}
-                        searchUserRepositories={searchUserRepositories} />
+                        searchUserRepositories={searchUserRepositories} 
+                        handleKeyPress={handleKeyPress} />
                 </Box>
                 <Box>
                     <SearchItems 
